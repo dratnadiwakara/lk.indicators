@@ -1,0 +1,10 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro 
+parts:
+- caption: Balance of Payments
+  chapters:
+  - file: CBSL/External/current_account
+  - file: CBSL/External/financial_account
