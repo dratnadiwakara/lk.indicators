@@ -1,0 +1,5 @@
+cp -r lkdashboard/* lk.indicators/
+git add ./*     
+git commit -m "version 0.0.0 4/19/2022"
+git push     
+ghp-import -n -p -f _build/html

@@ -13,11 +13,12 @@ import matplotlib.pyplot as plt
 plt.rcParams["figure.figsize"] = (16, 9)
 
 url_base = 'https://www.cbsl.gov.lk/sites/default/files/cbslweb_documents/statistics/sheets/'
-url_exports='C:/Users/Dimuthu/Downloads/table2.02_20220401_e.xlsx'
-url_imports='C:/Users/Dimuthu/Downloads/table2.04_20220401_e.xlsx'
-url_bop = 'C:/Users/Dimuthu/Downloads/table2.10_20220331_e.xlsx'
-url_remit = 'C:/Users/Dimuthu/Downloads/table2.14.2_20220331_e.xlsx'
-url_tourism = 'C:/Users/Dimuthu/Downloads/table2.14.1_20220331_e.xlsx'
+local_path = 'C:/Users/Dimuthu/Documents/CBSL Raw Data/'
+url_exports=local_path+'table2.02_20220401_e.xlsx'
+url_imports=local_path+'table2.04_20220401_e.xlsx'
+url_bop = local_path+'table2.10_20220331_e.xlsx'
+url_remit = local_path+'table2.14.2_20220331_e.xlsx'
+url_tourism = local_path+'table2.14.1_20220331_e.xlsx'
 
 # https://www.cbsl.gov.lk/en/statistics/statistical-tables/external-sector
 
@@ -188,7 +189,7 @@ tourism = tourism[['date','month']]
 tourism = tourism.rename(columns={"month":"tourism"})
 
 
-# In[11]:
+# In[8]:
 
 
 current_account = exports_monthly.merge(imports_monthly,left_on='date',right_on='date')
@@ -200,7 +201,7 @@ current_account = current_account.merge(tourism,left_on='date',right_on='date')
 # 
 # Q: Where is IT industry?
 
-# In[12]:
+# In[9]:
 
 
 plt.stackplot(  current_account['date'],
@@ -223,7 +224,7 @@ plt.ylabel("USD millions")
 
 # #### Import Composition
 
-# In[15]:
+# In[10]:
 
 
 plt.stackplot(  current_account['date'],

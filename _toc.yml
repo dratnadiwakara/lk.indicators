@@ -8,3 +8,4 @@ parts:
   chapters:
   - file: CBSL/External/current_account
   - file: CBSL/External/financial_account
+  - file: CBSL/External/reserves
