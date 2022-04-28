@@ -12,3 +12,6 @@ parts:
 - caption: Consumption
   chapters:
   - file: CBSL/Consumption/ccdata
+- caption: Colombo Stock Exchange
+  chapters:
+  - file: CSE/indices
