@@ -130,6 +130,23 @@ const thebe_selector_output = ".output, .cell_output"
    Credit Card Balance
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Consumption/foodprices.html">
+   Food Prices
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Production
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Production/agriculture.html">
+   Agriculture Production
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -457,6 +474,16 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </pre></div>
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">OSError</span><span class="g g-Whitespace">                                   </span>Traceback (most recent call last)
+<span class="nn">c:\users\dimuthu\appdata\local\programs\python\python39\lib\genericpath.py</span> in <span class="ni">exists</span><span class="nt">(path)</span>
+<span class="g g-Whitespace">     </span><span class="mi">18</span>     <span class="k">try</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">19</span>         <span class="n">os</span><span class="o">.</span><span class="n">stat</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">20</span>     <span class="k">except</span> <span class="p">(</span><span class="ne">OSError</span><span class="p">,</span> <span class="ne">ValueError</span><span class="p">):</span>
+
+<span class="ne">OSError</span>: [WinError 123] The filename, directory name, or volume label syntax is incorrect: &#39;&lt;ipython-input-2-747a129b9063&gt;&#39;
+
+<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+
 <span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
 <span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="mi">747</span><span class="n">a129b9063</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">financial_account</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
@@ -522,25 +549,32 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <span class="g g-Whitespace">   </span><span class="mi">1531</span>         <span class="n">frame</span> <span class="o">=</span> <span class="n">frame</span><span class="o">.</span><span class="n">f_back</span>
 
 <span class="nn">c:\users\dimuthu\appdata\local\programs\python\python39\lib\inspect.py</span> in <span class="ni">getframeinfo</span><span class="nt">(frame, context)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1497</span>         <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{!r}</span><span class="s1"> is not a frame or traceback object&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">frame</span><span class="p">))</span>
-<span class="g g-Whitespace">   </span><span class="mi">1498</span> 
-<span class="ne">-&gt; </span><span class="mi">1499</span>     <span class="n">filename</span> <span class="o">=</span> <span class="n">getsourcefile</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span> <span class="ow">or</span> <span class="n">getfile</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1500</span>     <span class="k">if</span> <span class="n">context</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
 <span class="g g-Whitespace">   </span><span class="mi">1501</span>         <span class="n">start</span> <span class="o">=</span> <span class="n">lineno</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">context</span><span class="o">//</span><span class="mi">2</span>
+<span class="g g-Whitespace">   </span><span class="mi">1502</span>         <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1503</span>             <span class="n">lines</span><span class="p">,</span> <span class="n">lnum</span> <span class="o">=</span> <span class="n">findsource</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1504</span>         <span class="k">except</span> <span class="ne">OSError</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1505</span>             <span class="n">lines</span> <span class="o">=</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">None</span>
+
+<span class="nn">c:\users\dimuthu\appdata\local\programs\python\python39\lib\inspect.py</span> in <span class="ni">findsource</span><span class="nt">(object)</span>
+<span class="g g-Whitespace">    </span><span class="mi">815</span>     <span class="ow">is</span> <span class="n">raised</span> <span class="k">if</span> <span class="n">the</span> <span class="n">source</span> <span class="n">code</span> <span class="n">cannot</span> <span class="n">be</span> <span class="n">retrieved</span><span class="o">.</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">816</span><span class="s2"> </span>
+<span class="ne">--&gt; </span><span class="mi">817</span><span class="s2">     file = getsourcefile(object)</span>
+<span class="g g-Whitespace">    </span><span class="mi">818</span><span class="s2">     if file:</span>
+<span class="g g-Whitespace">    </span><span class="mi">819</span><span class="s2">         # Invalidate cache if needed.</span>
 
 <span class="nn">c:\users\dimuthu\appdata\local\programs\python\python39\lib\inspect.py</span> in <span class="ni">getsourcefile</span><span class="nt">(object)</span>
-<span class="g g-Whitespace">    </span><span class="mi">704</span>                  <span class="n">importlib</span><span class="o">.</span><span class="n">machinery</span><span class="o">.</span><span class="n">EXTENSION_SUFFIXES</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">705</span>         <span class="k">return</span> <span class="kc">None</span>
-<span class="ne">--&gt; </span><span class="mi">706</span>     <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">707</span>         <span class="k">return</span> <span class="n">filename</span>
-<span class="g g-Whitespace">    </span><span class="mi">708</span>     <span class="c1"># only return a non-existent filename if the module has a PEP 302 loader</span>
+<span class="g g-Whitespace">    </span><span class="mi">704</span><span class="s2">                  importlib.machinery.EXTENSION_SUFFIXES):</span>
+<span class="g g-Whitespace">    </span><span class="mi">705</span><span class="s2">         return None</span>
+<span class="ne">--&gt; </span><span class="mi">706</span><span class="s2">     if os.path.exists(filename):</span>
+<span class="g g-Whitespace">    </span><span class="mi">707</span><span class="s2">         return filename</span>
+<span class="g g-Whitespace">    </span><span class="mi">708</span><span class="s2">     # only return a non-existent filename if the module has a PEP 302 loader</span>
 
 <span class="nn">c:\users\dimuthu\appdata\local\programs\python\python39\lib\genericpath.py</span> in <span class="ni">exists</span><span class="nt">(path)</span>
-<span class="g g-Whitespace">     </span><span class="mi">17</span>     <span class="sd">&quot;&quot;&quot;Test whether a path exists.  Returns False for broken symbolic links&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">18</span>     <span class="k">try</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">19</span>         <span class="n">os</span><span class="o">.</span><span class="n">stat</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">20</span>     <span class="k">except</span> <span class="p">(</span><span class="ne">OSError</span><span class="p">,</span> <span class="ne">ValueError</span><span class="p">):</span>
-<span class="g g-Whitespace">     </span><span class="mi">21</span>         <span class="k">return</span> <span class="kc">False</span>
+<span class="g g-Whitespace">     </span><span class="mi">17</span><span class="s2">     &quot;&quot;&quot;</span><span class="n">Test</span> <span class="n">whether</span> <span class="n">a</span> <span class="n">path</span> <span class="n">exists</span><span class="o">.</span>  <span class="n">Returns</span> <span class="kc">False</span> <span class="k">for</span> <span class="n">broken</span> <span class="n">symbolic</span> <span class="n">links</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">18</span><span class="s2">     try:</span>
+<span class="ne">---&gt; </span><span class="mi">19</span><span class="s2">         os.stat(path)</span>
+<span class="g g-Whitespace">     </span><span class="mi">20</span><span class="s2">     except (OSError, ValueError):</span>
+<span class="g g-Whitespace">     </span><span class="mi">21</span><span class="s2">         return False</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
