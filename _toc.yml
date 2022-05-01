@@ -9,9 +9,16 @@ parts:
   - file: CBSL/External/current_account
   - file: CBSL/External/financial_account
   - file: CBSL/External/reserves
+- caption: Fiscal
+  chapters:
+  - file: CBSL/Fiscal/fiscal
 - caption: Consumption
   chapters:
   - file: CBSL/Consumption/ccdata
+  - file: CBSL/Consumption/foodprices
+- caption: Production
+  chapters:
+  - file: CBSL/Production/agriculture
 - caption: Colombo Stock Exchange
   chapters:
   - file: CSE/indices

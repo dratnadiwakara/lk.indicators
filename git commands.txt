@@ -2,6 +2,10 @@ jupyter-book build lkdashboard/
 cp -r lkdashboard/* lk.indicators/
 cp -R data_processing lk.indicators/
 cd lk.indicators
+rm data_processing/lk-indicators-585e699aa78d.json
+rm data_processing/geckodriver.exe
+rm data_processing/geckodriver.exe
+rm data_processing/variables.py
 git add ./*     
 git commit -m "version 0.0.0 4/19/2022"
 git push     
